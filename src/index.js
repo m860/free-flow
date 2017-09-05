@@ -8,8 +8,10 @@ log4js.configure({
 
 const log = log4js.getLogger("sign");
 
-const sign = (ssocookie)=> {
-	log.info(`start sign ${ssocookie}`)
+const sign = (data)=> {
+	const ssocookie = data.cookie;
+	const name = data.name;
+	log.info(`start sign ${name}`)
 	return new Promise((resolve, reject)=> {
 		request({
 			url: "http://218.205.252.24:18081/scmccCampaign/signCalendar/sign.do",
@@ -54,8 +56,7 @@ const sign = (ssocookie)=> {
 }
 
 const ssocookies = [
-	"6435FA9EC9F6A64B105276D0223D129D",
-	"8259AC0813A148B869AC6EF551FF2C5A"
+	{name: "walle", cookie: "6435FA9EC9F6A64B105276D0223D129D"}
 ];
 
 async function run(i = 0) {
