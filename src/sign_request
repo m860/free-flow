@@ -1,0 +1,44 @@
+http://218.205.252.24:18081/scmccCampaign/signCalendar/sign.do
+
+POST /scmccCampaign/signCalendar/sign.do HTTP/1.1
+Host: 218.205.252.24:18081
+Content-Length: 42
+Accept: application/json, text/javascript, */*
+Origin: http://218.205.252.24:18081
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Linux; Android 7.0; BLN-AL10 Build/HONORBLN-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36/3.4.0 scmcc.mobile
+Content-Type: application/x-www-form-urlencoded
+Referer: http://218.205.252.24:18081/scmccCampaign/signCalendar/index.html?abStr=1995
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,en-US;q=0.8
+Cookie:
+cstamp=1504577034130;
+smsCityCookie=11;
+SmsNoPwdLoginCookie=6435FA9EC9F6A64B105276D0223D129D;
+tokenid=;
+SSOCookie=;
+JSESSIONID=2x5U9yCPqSRjrChOXUO6gy1osMD3WwpYznCtPhBY2MxDj2_RoAT7!3057625;
+WT_FPC=id=2218aa09807ed562c0b1504575212738:lv=1504664053259:ss=1504663773358
+
+SSOCookie=6435FA9EC9F6A64B105276D0223D129D
+
+POST /scmccCampaign/signCalendar/signed.do HTTP/1.1
+Host: 218.205.252.24:18081
+Content-Length: 42
+Accept: application/json, text/javascript, */*
+Origin: http://218.205.252.24:18081
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Linux; Android 7.0; BLN-AL10 Build/HONORBLN-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36/3.4.0 scmcc.mobile
+Content-Type: application/x-www-form-urlencoded
+Referer: http://218.205.252.24:18081/scmccCampaign/signCalendar/index.html?abStr=6124
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,en-US;q=0.8
+Cookie:
+SmsNoPwdLoginCookie=8259AC0813A148B869AC6EF551FF2C5A;
+smsCityCookie=11;
+tokenid=;
+SSOCookie=;
+JSESSIONID=Il1U_amdYdKfgbthGGwkeTphXFF6Ws8ZQN7ED5S8C9P2h1qLQZO8!1178766403;
+WT_FPC=id=23fdb0ad3901c9f43441504664463766:lv=1504664463766:ss=1504664463766
+
+SSOCookie=8259AC0813A148B869AC6EF551FF2C5A
