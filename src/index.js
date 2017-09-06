@@ -8,13 +8,31 @@ log4js.configure({
 
 const log = log4js.getLogger("sign");
 
+const action = {
+	sign: "http://218.205.252.24:18081/scmccCampaign/signCalendar/sign.do",
+	lottery: "http://218.205.252.24:18081/scmccCampaign/dazhuanpan/dzpDraw.do?t="
+};
+
+function getActionName(value) {
+	for (let key in action) {
+		if (action[key] === value) {
+			return key;
+		}
+	}
+	return 'unknown';
+}
+
 const sign = (data)=> {
 	const ssocookie = data.cookie;
 	const name = data.name;
-	log.info(`start sign ${name}`)
+	log.info(`start ${getActionName(data.action)} ${name}`)
 	return new Promise((resolve, reject)=> {
+		let url = data.action;
+		if (url === action.lottery) {
+			url += Math.random();
+		}
 		request({
-			url: "http://218.205.252.24:18081/scmccCampaign/signCalendar/sign.do",
+			url: url,
 			method: "POST",
 			headers: {
 				"Accept-Language": "zh-CN,en-US;q=0.8",
@@ -34,16 +52,8 @@ const sign = (data)=> {
 				const contentType = res.headers['content-type'];
 				if (/application\/json/.test(contentType)) {
 					try {
-						const result = JSON.parse(body).result;
-						if (result.code === 0) {
-							//success
-							log.info('sign success!', body);
-							resolve()
-						}
-						else {
-							log.info('sign fail!', body);
-							resolve();
-						}
+						log.info(body);
+						resolve();
 					}
 					catch (ex) {
 						log.error(ex, body);
@@ -61,12 +71,25 @@ const sign = (data)=> {
 const ssocookies = [
 	{
 		name: "walle", cookie: "6435FA9EC9F6A64B105276D0223D129D",
-		JSESSIONID:"2x5U9yCPqSRjrChOXUO6gy1osMD3WwpYznCtPhBY2MxDj2_RoAT7!3057625"
+		JSESSIONID: "2x5U9yCPqSRjrChOXUO6gy1osMD3WwpYznCtPhBY2MxDj2_RoAT7!3057625",
+		action: action.sign
+	},
+	{
+		name: "walle", cookie: "6435FA9EC9F6A64B105276D0223D129D",
+		JSESSIONID: "2x5U9yCPqSRjrChOXUO6gy1osMD3WwpYznCtPhBY2MxDj2_RoAT7!3057625",
+		action: action.lottery
 	},
 	{
 		name: "steve",
 		cookie: "8259AC0813A148B869AC6EF551FF2C5A",
-		JSESSIONID:"Il1U_amdYdKfgbthGGwkeTphXFF6Ws8ZQN7ED5S8C9P2h1qLQZO8!1178766403"
+		JSESSIONID: "Il1U_amdYdKfgbthGGwkeTphXFF6Ws8ZQN7ED5S8C9P2h1qLQZO8!1178766403",
+		action: action.sign
+	},
+	{
+		name: "steve",
+		cookie: "8259AC0813A148B869AC6EF551FF2C5A",
+		JSESSIONID: "Il1U_amdYdKfgbthGGwkeTphXFF6Ws8ZQN7ED5S8C9P2h1qLQZO8!1178766403",
+		action: action.lottery
 	},
 ];
 
