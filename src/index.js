@@ -49,19 +49,8 @@ const sign = (data)=> {
 				resolve();
 			}
 			else {
-				const contentType = res.headers['content-type'];
-				if (/application\/json/.test(contentType)) {
-					try {
-						log.info(body);
-						resolve();
-					}
-					catch (ex) {
-						log.error(ex, body);
-					}
-				}
-				else {
-					log.info(body);
-				}
+				log.info(body);
+				resolve();
 			}
 		});
 	})
@@ -104,6 +93,3 @@ async function run(i = 0) {
 
 run()
 
-// ssocookies.forEach(async(cookie)=> {
-// 	await sign(cookie);
-// });
