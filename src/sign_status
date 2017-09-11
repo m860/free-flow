@@ -17,12 +17,12 @@ SSOCookie=6435FA9EC9F6A64B105276D0223D129D
 {
 	"result": {
 		"obj": {
-			"dayNum": 7,
+			"dayNum": 7,                    //签到天数
 			"prizes": [{
 				"DAYCOUNT": 1,
 				"PRIZENAME": "10积分",
-				"DRAWSTATUS": "1",
-				"TYPE": 0
+				"DRAWSTATUS": "1",          //1表示已获取
+				"TYPE": 0                   //签到奖品类型
 			}, {
 				"DAYCOUNT": 7,
 				"PRIZENAME": "100M",
