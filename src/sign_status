@@ -1,0 +1,46 @@
+POST /scmccCampaign/signCalendar/queryPrizeAndDrawStatus.do HTTP/1.1
+Host: 218.205.252.24:18081
+Content-Length: 42
+Accept: application/json, text/javascript, */*
+Origin: http://218.205.252.24:18081
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Linux; Android 7.0; BLN-AL10 Build/HONORBLN-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36/3.4.0 scmcc.mobile
+Content-Type: application/x-www-form-urlencoded
+Referer: http://218.205.252.24:18081/scmccCampaign/signCalendar/index.html?abStr=1995
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,en-US;q=0.8
+Cookie: SmsNoPwdLoginCookie=6435FA9EC9F6A64B105276D0223D129D; cstamp=1505092905687; smsCityCookie=11; tokenid=; SSOCookie=; JSESSIONID=qy1uim3D_gEf70o2OidO6n9eHzEwXlp90_v1i6mCH3MABn3F-L7t!745068112; WT_FPC=id=26a36049c8e98f2cc781505092949835:lv=1505093123884:ss=1505092949835
+
+SSOCookie=6435FA9EC9F6A64B105276D0223D129D
+
+
+{
+	"result": {
+		"obj": {
+			"dayNum": 7,
+			"prizes": [{
+				"DAYCOUNT": 1,
+				"PRIZENAME": "10积分",
+				"DRAWSTATUS": "1",
+				"TYPE": 0
+			}, {
+				"DAYCOUNT": 7,
+				"PRIZENAME": "100M",
+				"DRAWSTATUS": "1",
+				"TYPE": 1
+			}, {
+				"DAYCOUNT": 15,
+				"PRIZENAME": "200M",
+				"DRAWSTATUS": "0",
+				"TYPE": 2
+			}, {
+				"DAYCOUNT": 25,
+				"PRIZENAME": "300M",
+				"DRAWSTATUS": "0",
+				"TYPE": 3
+			}]
+		},
+		"code": 0,
+		"info": ""
+	}
+}
