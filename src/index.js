@@ -148,7 +148,11 @@ const userConfiguration = [
 		name: "steve",
 		SSOCookie: "8259AC0813A148B869AC6EF551FF2C5A",
 		JSESSIONID: "clx0OGNuTCqz6mPvj5I7tFLV3c4ZdAZnJ7r38QvCI_DjEe4NvIt6!1438695398"
-	},
+	},{
+		name:"eva",
+		SSOCookie: "77A85FA2B434A3C275BB1953A04C7204",
+		JSESSIONID: "q_N2cRJ4HD9gFJj8zrnzXAi80LhoxSVGI8-dM4XmOHy4amDOjaLQ!870828801"
+	}
 ];
 
 async function run(i = 0) {
