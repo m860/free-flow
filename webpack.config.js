@@ -57,7 +57,7 @@ if (isProduction()) {
 }
 
 var config = {
-	entry: path.resolve(__dirname, 'src/index.js'),
+	entry: ['babel-polyfill',path.resolve(__dirname, 'src/index.js')],
 	target: "node",
 	output: {
 		path: path.resolve(__dirname, 'dist'),

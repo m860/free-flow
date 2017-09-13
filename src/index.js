@@ -1,3 +1,5 @@
+require("babel-core/register");
+require("babel-polyfill");
 import request from 'request'
 import log4js from 'log4js'
 
