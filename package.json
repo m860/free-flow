@@ -4,7 +4,7 @@
   "description": "auto signed",
   "main": "index.js",
   "scripts": {
-    "test": "babel-node src/index.js",
+    "test": "npm run build && cd dist && node index.js",
     "build": "export NODE_ENV=production && webpack && cp package.json dist/"
   },
   "repository": {
