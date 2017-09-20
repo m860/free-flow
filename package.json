@@ -4,7 +4,7 @@
   "description": "auto signed",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && cd dist && node index.js",
+    "test": "jest",
     "build": "export NODE_ENV=production && webpack && cp package.json dist/"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "jest": "^21.1.0",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.5.5"
   },

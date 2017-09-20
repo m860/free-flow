@@ -31,7 +31,7 @@ function getActionName(value) {
 	return 'unknown';
 }
 
-const sign = (name, SSOCookie, JSESSIONID)=> {
+export const sign = (name, SSOCookie, JSESSIONID)=> {
 	log.info(`start sign ${name}`);
 	return new Promise((resolve, reject)=> {
 		request({
@@ -39,7 +39,7 @@ const sign = (name, SSOCookie, JSESSIONID)=> {
 			method: "POST",
 			headers: {
 				...defaultHeaders,
-				"Cookie": `cstamp=1504577034130; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
+				"Cookie": `cstamp=${Date.now()}; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
 			},
 			formData: {
 				SSOCookie: SSOCookie
@@ -57,7 +57,7 @@ const sign = (name, SSOCookie, JSESSIONID)=> {
 	})
 };
 
-const lottery = (name, SSOCookie, JSESSIONID)=> {
+export const lottery = (name, SSOCookie, JSESSIONID)=> {
 	log.info(`start lottery ${name}`)
 	return new Promise((resolve, reject)=> {
 		request({
@@ -65,7 +65,7 @@ const lottery = (name, SSOCookie, JSESSIONID)=> {
 			method: "POST",
 			headers: {
 				...defaultHeaders,
-				"Cookie": `cstamp=1504577034130; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
+				"Cookie": `cstamp=${Date.now()}; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
 			},
 			formData: {
 				SSOCookie: SSOCookie
@@ -83,14 +83,14 @@ const lottery = (name, SSOCookie, JSESSIONID)=> {
 	})
 }
 
-const querySignStatus = (name, SSOCookie, JSESSIONID)=> {
+export const querySignStatus = (name, SSOCookie, JSESSIONID)=> {
 	return new Promise((resolve, reject)=> {
 		request({
 			url: `http://218.205.252.24:18081/scmccCampaign/signCalendar/queryPrizeAndDrawStatus.do`,
 			method: "POST",
 			headers: {
 				...defaultHeaders,
-				"Cookie": `cstamp=1504577034130; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
+				"Cookie": `cstamp=${Date.now()}; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
 			},
 			formData: {
 				SSOCookie: SSOCookie
@@ -115,7 +115,7 @@ const querySignStatus = (name, SSOCookie, JSESSIONID)=> {
 	});
 }
 
-const getSignPrize = (name, SSOCookie, JSESSIONID, type)=> {
+export const getSignPrize = (name, SSOCookie, JSESSIONID, type)=> {
 	log.info(`start get prize ${name}`);
 	return new Promise((resolve, reject)=> {
 		request({
@@ -124,7 +124,7 @@ const getSignPrize = (name, SSOCookie, JSESSIONID, type)=> {
 			headers: {
 				...defaultHeaders,
 				//Referer: "http://218.205.252.24:18081/scmccCampaign/signCalendar/index.html?abStr=6124",
-				"Cookie": `cstamp=1504577034130; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
+				"Cookie": `cstamp=${Date.now()}; smsCityCookie=11; SmsNoPwdLoginCookie=${SSOCookie}; tokenid=; SSOCookie=; JSESSIONID=${JSESSIONID};`,
 			},
 			body: `SSOCookie=${SSOCookie}&type=${type}`
 		}, (err, res, body)=> {
@@ -163,6 +163,7 @@ async function run(i = 0) {
 		const opt = userConfiguration[i];
 		await sign(opt.name, opt.SSOCookie, opt.JSESSIONID);
 		await lottery(opt.name, opt.SSOCookie, opt.JSESSIONID);
+		/*
 		const signStatus = await querySignStatus(opt.name, opt.SSOCookie, opt.JSESSIONID);
 		if (signStatus) {
 			if (signStatus.result) {
@@ -184,6 +185,7 @@ async function run(i = 0) {
 				}
 			}
 		}
+		*/
 		await run(i + 1);
 	}
 }
