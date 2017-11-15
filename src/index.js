@@ -144,7 +144,7 @@ const userConfiguration = [
 	{
 		name: "walle",
 		SSOCookie: "6435FA9EC9F6A64B105276D0223D129D",
-		JSESSIONID: "2x5U9yCPqSRjrChOXUO6gy1osMD3WwpYznCtPhBY2MxDj2_RoAT7!3057625"
+		JSESSIONID: "_QK-RoScK0GUgaZZHxB1fqj6Dcxdom_AgwDIAETxviOxcDlJeBsQ!-994573411"
 	},
 	{
 		name: "steve",
@@ -163,29 +163,29 @@ async function run(i = 0) {
 		const opt = userConfiguration[i];
 		await sign(opt.name, opt.SSOCookie, opt.JSESSIONID);
 		await lottery(opt.name, opt.SSOCookie, opt.JSESSIONID);
-		/*
-		const signStatus = await querySignStatus(opt.name, opt.SSOCookie, opt.JSESSIONID);
-		if (signStatus) {
-			if (signStatus.result) {
-				if (signStatus.result.obj) {
-					const day = signStatus.result.obj.dayNum;
-					log.info(`sign ${day} day`);
-					if (day === 1) {
-						await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 0)
-					}
-					if (day === 7) {
-						await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 1)
-					}
-					if (day === 15) {
-						await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 2)
-					}
-					if (day === 25) {
-						await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 3)
+		if (opt.name === 'walle') {
+			const signStatus = await querySignStatus(opt.name, opt.SSOCookie, opt.JSESSIONID);
+			if (signStatus) {
+				if (signStatus.result) {
+					if (signStatus.result.obj) {
+						const day = signStatus.result.obj.dayNum;
+						log.info(`sign ${day} day`);
+						if (day === 1) {
+							await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 0)
+						}
+						if (day === 7) {
+							await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 1)
+						}
+						if (day === 15) {
+							await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 2)
+						}
+						if (day === 25) {
+							await getSignPrize(opt.name, opt.SSOCookie, opt.JSESSIONID, 3)
+						}
 					}
 				}
 			}
 		}
-		*/
 		await run(i + 1);
 	}
 }
